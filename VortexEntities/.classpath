@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre7">
-		<attributes>
-			<attribute name="owner.project.facets" value="java"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate">
-		<attributes>
-			<attribute name="owner.project.facets" value="jpt.jpa"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MY_SQL_JDBC">
-		<attributes>
-			<attribute name="owner.project.facets" value="jpt.jpa"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/MySQL/Connector.J 5.1/mysql-connector-java-5.1.33-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/hibernate-distribution-3.6.0.Final/hibernate3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/hibernate-distribution-3.6.0.Final/lib/required/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/hibernate-distribution-3.6.0.Final/lib/required/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/hibernate-distribution-3.6.0.Final/lib/required/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/hibernate-distribution-3.6.0.Final/lib/required/javassist-3.12.0.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/hibernate-distribution-3.6.0.Final/lib/required/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/hibernate-distribution-3.6.0.Final/lib/required/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/hibernate-distribution-3.6.0.Final/lib/jpa/hibernate-jpa-2.0-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/hibernate-distribution-3.6.0.Final/lib/bytecode/cglib/cglib-2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/jersey-archive-1.18/lib/asm-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/jersey-archive-1.18/lib/jackson-core-asl-1.9.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/jersey-archive-1.18/lib/jackson-jaxrs-1.9.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/jersey-archive-1.18/lib/jackson-mapper-asl-1.9.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/jersey-archive-1.18/lib/jackson-xc-1.9.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/jersey-archive-1.18/lib/jersey-client-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/jersey-archive-1.18/lib/jersey-core-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/jersey-archive-1.18/lib/jersey-json-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/jersey-archive-1.18/lib/jersey-server-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/jersey-archive-1.18/lib/jersey-servlet-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/jersey-archive-1.18/lib/jettison-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alejandro/workspace/jersey-archive-1.18/lib/jsr311-api-1.1.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -77,8 +77,8 @@ public class EntityTester {
 //		}
 //		
 		EventManagement em = new EventManagement();
-//		System.out.println(em.customerReservation(2, "Reservacion de Prueba6", "Reservacion de Prueba6", 0, new Date(), 4, 9, 1, "una pagina ahi"));
-		em.confirmAttendance(3, 6);
+		System.out.println(em.customerReservation(2, "Reservacion de Prueba6", "Reservacion de Prueba6", 0, new Date(), 4, 9, 1, "una pagina ahi"));
+//		em.confirmAttendance(3, 6);
 		
 		
 //		CustomerManagement cm = new CustomerManagement();

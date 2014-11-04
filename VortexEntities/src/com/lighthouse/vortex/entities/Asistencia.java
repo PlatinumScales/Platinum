@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-
+  
 /**
  * The persistent class for the asistencia database table.
  * 
@@ -18,10 +18,10 @@ import javax.persistence.*;
 													+ "AND a.eventoBean.idEvento = :eventIDPrm ")})
 public class Asistencia implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+  
 	@EmbeddedId
 	private AsistenciaPK id;
-
+  
 	
 	private int presente = 0;
 

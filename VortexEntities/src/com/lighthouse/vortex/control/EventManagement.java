@@ -3,8 +3,6 @@ package com.lighthouse.vortex.control;
 import java.util.Date;
 import java.util.List;
 
-import org.hibernate.sql.Update;
-
 import com.lighthouse.vortex.entities.Asistencia;
 import com.lighthouse.vortex.entities.Cliente;
 import com.lighthouse.vortex.entities.Evento;
@@ -154,7 +152,7 @@ public class EventManagement {
 		
 		EventoService es = new EventoService();
 		es.startEntityManager(persistanceUnit);
-		List<Evento> eventos = es.eventsByDate(date);
+		List<Evento> eventos = es.findByDate(date);
 		
 		boolean rejected;
 		
@@ -196,6 +194,7 @@ public class EventManagement {
 		}
 	}
 	
+	//Manager use: Confirms a customer attended the event reservation not necessary 
 	public boolean confirmAttendance(int customerID, int eventID){
 		AsistenciaService as = new AsistenciaService();
 		as.startEntityManager(persistanceUnit);
@@ -223,4 +222,9 @@ public class EventManagement {
 		return true;
 	}
 	
+	//Returns coming events (from Today)
+	public List<Evento> getComing(){
+		EventoService es = new EventoService();
+		return es.findComing();
+	}
 }
