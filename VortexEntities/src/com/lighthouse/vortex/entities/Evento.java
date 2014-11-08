@@ -18,7 +18,8 @@ import java.util.List;
 		@NamedQuery(name = "Evento.findByID", query = "SELECT e FROM Evento e WHERE e.idEvento = :eventIDPrm"),
 		@NamedQuery(name = "Evento.findByCustomer", query = "SELECT e FROM Evento e WHERE e.cliente.idCliente = :customerPrm"), 
 		@NamedQuery(name = "Evento.findByDate", query = "SELECT e FROM Evento e WHERE e.fecha = :datePrm"),
-		@NamedQuery(name = "Evento.findComing", query = "SELECT e FROM Evento e WHERE e.fecha >= :datePrm")})
+		@NamedQuery(name = "Evento.findComing", query = "SELECT e FROM Evento e WHERE e.publico > 0 "
+													  + "AND e.fecha >= :datePrm ORDER BY e.fecha")})
 public class Evento implements Serializable {
 	private static final long serialVersionUID = 1L;
 

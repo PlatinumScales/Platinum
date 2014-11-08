@@ -225,6 +225,7 @@ public class EventManagement {
 	//Returns coming events (from Today)
 	public List<Evento> getComing(){
 		EventoService es = new EventoService();
+		es.startEntityManager(persistanceUnit);
 		return es.findComing();
 	}
 }

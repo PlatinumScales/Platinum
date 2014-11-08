@@ -43,9 +43,8 @@ public class EventoService extends EntityService<Evento> implements
 	// @NamedQuery(name = "Evento.findByDate", query =
 	// "SELECT e FROM Evento e WHERE e.fecha = :datePrm")
 	public List<Evento> findByDate(Date date) {
-		TypedQuery<Evento> query = em.createNamedQuery("Evento.findByDate",
-				Evento.class);
-
+		
+		TypedQuery<Evento> query = em.createNamedQuery("Evento.findByDate", Evento.class);
 		query.setParameter("datePrm", date, TemporalType.DATE);
 		return query.getResultList();
 	}
@@ -53,8 +52,9 @@ public class EventoService extends EntityService<Evento> implements
 	// @NamedQuery(name = "Evento.findComing", query =
 	// "SELECT e FROM Evento e WHERE e.fecha >= :datePrm")
 	public List<Evento> findComing() {
+		Date date = new Date();
 		TypedQuery<Evento> query = em.createNamedQuery("Evento.findComing", Evento.class);
-		query.setParameter("datePrm", new Date(), TemporalType.DATE);
+		query.setParameter("datePrm", date, TemporalType.DATE);
 		return query.getResultList();
 	}
 

@@ -5,20 +5,8 @@ import java.util.List;
 
 import javassist.expr.NewArray;
 
-import com.lighthouse.vortex.control.CustomerManagement;
-import com.lighthouse.vortex.control.EventManagement;
-import com.lighthouse.vortex.control.ProductManagemet;
-import com.lighthouse.vortex.entities.Categoria;
-import com.lighthouse.vortex.entities.Cliente;
-import com.lighthouse.vortex.entities.Credencial;
-import com.lighthouse.vortex.entities.Evento;
-import com.lighthouse.vortex.entities.Juego;
-import com.lighthouse.vortex.entities.Producto;
-import com.lighthouse.vortex.service.CategoriaService;
-import com.lighthouse.vortex.service.ClienteService;
-import com.lighthouse.vortex.service.CredencialService;
-import com.lighthouse.vortex.service.EventoService;
-import com.lighthouse.vortex.service.JuegoService;
+import com.lighthouse.vortex.control.*;
+import com.lighthouse.vortex.entities.*;
 
 public class EntityTester {
 	static String persistanceUnit = "VortexEntities";
@@ -77,9 +65,11 @@ public class EntityTester {
 //		}
 //		
 		EventManagement em = new EventManagement();
-		System.out.println(em.customerReservation(2, "Reservacion de Prueba6", "Reservacion de Prueba6", 0, new Date(), 4, 9, 1, "una pagina ahi"));
+//		System.out.println(em.customerReservation(2, "Reservacion de Prueba6", "Reservacion de Prueba6", 1, new Date(), 2, 5, 1, "una pagina ahi"));
 //		em.confirmAttendance(3, 6);
-		
+		for (Evento e : em.getComing()) {
+			System.out.println(e.getIdEvento());
+		}
 		
 //		CustomerManagement cm = new CustomerManagement();
 //		System.out.println(cm.registerCustomer(3, "Marcos"));
