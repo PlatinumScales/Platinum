@@ -61,12 +61,9 @@ public class EventResources {
 	@Consumes(MediaType.TEXT_PLAIN)
 	public Void createCustomerReservation(String input) {
 		XPath xpath = XPathFactory.newInstance().newXPath();
-		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		try {
 			InputSource source = new InputSource(new StringReader(input));
-			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-			DocumentBuilder db = dbf.newDocumentBuilder();
-			Document document = db.parse(source);
+			Document document =(Document) xpath.evaluate("/", source, XPathConstants.NODE);
 			
 			String exp = "/Eventos/Evento[1]";	
 
@@ -94,13 +91,7 @@ public class EventResources {
 		} catch (XPathExpressionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (NumberFormatException | DOMException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} 
 		return null;
 	}
 
