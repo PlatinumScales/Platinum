@@ -73,8 +73,7 @@ public class EventResources {
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			// em.customerReservation(idCliente, nombre, descripcion, publico,
 			// fecha, horaInicio, horaFin, cupo, imagenUrl)
-			System.out.println(xpath.evaluate(exp + "/nombre", document));
-
+			System.out.println("Algo");
 			em.customerReservation(Integer.parseInt(
 					xpath.evaluate(exp + "/idCliente", document)),
 					xpath.evaluate(exp + "/nombre", document),
