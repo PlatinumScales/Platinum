@@ -43,15 +43,17 @@ public class EventResources {
 		String ouput = "<Calendar>";
 		EventManagement em = new EventManagement();
 		for (Evento e : em.getComing()) {
-			ouput = ouput + "" + "<Evento>" + "<idEvento>" + e.getIdEvento()
-					+ "</idEvento>" + "<nombre>" + e.getNombre() + "</nombre>"
-					+ "<descripcion>" + e.getDescripcion() + "</descripcion>"
-					+ "<fecha>" + e.getFecha() + "</fecha>" + "<horaInicio>"
-					+ e.getHoraInicio() + "</horaInicio>" + "<horaFin>"
-					+ e.getHoraFin() + "</horaFin>" + "<cupo>"
-					+ e.getAsistencias().size() + "/" + e.getCupo() + "</cupo>"
-					+ "<imagen>" + e.getImagenBean().getUrl() + "</imagen>"
-					+ "<mesa>" + e.getMesa().getIdMesa() + "</mesa>"
+			ouput = ouput + "" 
+					+ "<Evento>" 
+					+ "<idEvento>" + e.getIdEvento() + "</idEvento>"
+					+ "<nombre>" + e.getNombre() + "</nombre>" 
+					+ "<descripcion>" + e.getDescripcion() + "</descripcion>" 
+					+ "<fecha>" + e.getFecha() + "</fecha>"
+					+ "<horaInicio>" + e.getHoraInicio() + "</horaInicio>" 
+					+ "<horaFin>"+ e.getHoraFin() + "</horaFin>" 
+					+ "<cupo>" + e.getAsistencias().size() + "/"+ e.getCupo() + "</cupo>" 
+					+ "<imagen>" + e.getImagenBean().getUrl() + "</imagen>" 
+					+ "<mesa>" + e.getMesa().getIdMesa() + "</mesa>" 
 					+ "</Evento>";
 		}
 		return ouput + "</Calendar>";
@@ -63,36 +65,37 @@ public class EventResources {
 		XPath xpath = XPathFactory.newInstance().newXPath();
 		try {
 			InputSource source = new InputSource(new StringReader(input));
-			Document document =(Document) xpath.evaluate("/", source, XPathConstants.NODE);
-			
-			String exp = "/Eventos/Evento[1]";	
+			Document document = (Document) xpath.evaluate("/", source, XPathConstants.NODE);
 
-		
+			String exp = "/Eventos/Evento[1]";
 
-		
 			EventManagement em = new EventManagement();
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			// em.customerReservation(idCliente, nombre, descripcion, publico,
 			// fecha, horaInicio, horaFin, cupo, imagenUrl)
-			System.out.println(xpath.evaluate(exp+"/nombre", document));
+			System.out.println(xpath.evaluate(exp + "/nombre", document));
 
-			// em.customerReservation(
-			// Integer.parseInt(nodeList.item(0).getFirstChild().getNodeValue())
-			// ,
-			// nodeList.item(1).getFirstChild().getNodeValue(),
-			// nodeList.item(2).getFirstChild().getNodeValue(),
-			// Integer.parseInt(nodeList.item(3).getFirstChild().getNodeValue()),
-			// formatter.parse(nodeList.item(4).getFirstChild().getNodeValue()),
-			// Integer.parseInt(nodeList.item(5).getFirstChild().getNodeValue()),
-			// Integer.parseInt(nodeList.item(6).getFirstChild().getNodeValue()),
-			// Integer.parseInt(nodeList.item(7).getFirstChild().getNodeValue()),
-			// nodeList.item(8).getFirstChild().getNodeValue());
-			//
+			em.customerReservation(Integer.parseInt(
+					xpath.evaluate(exp + "/idCliente", document)),
+					xpath.evaluate(exp + "/nombre", document),
+					xpath.evaluate(exp + "/descripcion", document),
+					Integer.parseInt(xpath.evaluate(exp + "/publico", document)),
+					formatter.parse(xpath.evaluate(exp + "/fecha", document)),
+					Integer.parseInt(xpath.evaluate(exp + "/horaInicio", document)),
+					Integer.parseInt(xpath.evaluate(exp + "/horaFin", document)),
+					Integer.parseInt(xpath.evaluate(exp + "/cupo", document)),
+					xpath.evaluate(exp + "/imagen", document));
+
 		} catch (XPathExpressionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
-
 }
