@@ -37,10 +37,12 @@ public class EventResources {
 		return "HELLO IM IN Events!";
 	}
 
+	//Returns all future public events (including today) 
 	@GET
 	@Produces(MediaType.TEXT_XML)
+	//under construction
 	public String getAll() {
-		String ouput = "<Calendar>";
+		String ouput = "<Eventos>";
 		EventManagement em = new EventManagement();
 		for (Evento e : em.getComing()) {
 			ouput = ouput + "" 
@@ -56,9 +58,10 @@ public class EventResources {
 					+ "<mesa>" + e.getMesa().getIdMesa() + "</mesa>" 
 					+ "</Evento>";
 		}
-		return ouput + "</Calendar>";
+		return ouput + "</Eventos>";
 	}
 
+	//Creates a reservation
 	@PUT
 	@Consumes(MediaType.TEXT_PLAIN)
 	public Void createCustomerReservation(String input) {
@@ -67,7 +70,7 @@ public class EventResources {
 			InputSource source = new InputSource(new StringReader(input));
 			Document document = (Document) xpath.evaluate("/", source, XPathConstants.NODE);
 
-			String exp = "/Eventos/Evento[1]";
+			String exp = "/Eventos/Evento[1]";	
 
 			EventManagement em = new EventManagement();
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");

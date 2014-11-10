@@ -19,7 +19,7 @@ import java.util.List;
 		@NamedQuery(name = "Evento.findByCustomer", query = "SELECT e FROM Evento e WHERE e.cliente.idCliente = :customerPrm ORDER BY e.fecha desc"),
 		@NamedQuery(name = "Evento.findByDate", query = "SELECT e FROM Evento e WHERE e.fecha = :datePrm"),
 		@NamedQuery(name = "Evento.findVortexEvents", query = "SELECT e FROM Evento e WHERE e.publico > 0 "
-				+ "AND e.fecha >= :datePrm " + "AND e.cliente is null ORDER BY e.fecha "),
+				+ " AND e.fecha >= :datePrm " + "AND e.cliente is null ORDER BY e.fecha "),
 		@NamedQuery(name = "Evento.findCustomerEvents", query = "SELECT e FROM Evento e WHERE e.publico > 0 "
 				+ "AND e.fecha >= :datePrm " + "AND e.cliente is NOT null ORDER BY e.fecha ")
 
