@@ -49,13 +49,31 @@ public class EventoService extends EntityService<Evento> implements
 		return query.getResultList();
 	}
 
-	// @NamedQuery(name = "Evento.findComing", query =
-	// "SELECT e FROM Evento e WHERE e.fecha >= :datePrm")
-	public List<Evento> findComing() {
+//	@NamedQuery(name = "Evento.findVortexEvents", query = "SELECT e FROM Evento e WHERE e.publico > 0 "
+//			  + "AND e.fecha >= :datePrm "
+//			  + "AND e.cliente is null ORDER BY e.fecha ")
+	public List<Evento> findVortexEvents() {
 		Date date = new Date();
-		TypedQuery<Evento> query = em.createNamedQuery("Evento.findComing", Evento.class);
+		TypedQuery<Evento> query = em.createNamedQuery("Evento.findVortexEvents", Evento.class);
+		query.setParameter("datePrm", date, TemporalType.DATE);
+		return query.getResultList();
+	}
+	
+	
+//	@NamedQuery(name = "Evento.findCustomerEvents", query = "SELECT e FROM Evento e WHERE e.publico > 0 "
+//			+ "AND e.fecha >= :datePrm " + "AND e.cliente is NOT null ORDER BY e.fecha "
+	public List<Evento> findCustomerEvents() {
+		Date date = new Date();
+		TypedQuery<Evento> query = em.createNamedQuery("Evento.findCustomerEvents", Evento.class);
 		query.setParameter("datePrm", date, TemporalType.DATE);
 		return query.getResultList();
 	}
 
+//	@NamedQuery(name = "Evento.findByCustomer", query = "SELECT e FROM Evento e WHERE e.cliente.idCliente = :customerPrm ORDER BY e.fecha desc"),
+	public List<Evento> findCustomerEvents(int customerID) {
+		Date date = new Date();
+		TypedQuery<Evento> query = em.createNamedQuery("Evento.findByCustomer", Evento.class);
+		query.setParameter("idClientePrm", customerID);
+		return query.getResultList();
+	}
 }

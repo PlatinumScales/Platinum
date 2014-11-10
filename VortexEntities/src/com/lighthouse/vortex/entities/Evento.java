@@ -16,10 +16,14 @@ import java.util.List;
 @NamedQueries(value = {
 		@NamedQuery(name = "Evento.findAll", query = "SELECT e FROM Evento e"),
 		@NamedQuery(name = "Evento.findByID", query = "SELECT e FROM Evento e WHERE e.idEvento = :eventIDPrm"),
-		@NamedQuery(name = "Evento.findByCustomer", query = "SELECT e FROM Evento e WHERE e.cliente.idCliente = :customerPrm"), 
+		@NamedQuery(name = "Evento.findByCustomer", query = "SELECT e FROM Evento e WHERE e.cliente.idCliente = :customerPrm ORDER BY e.fecha desc"),
 		@NamedQuery(name = "Evento.findByDate", query = "SELECT e FROM Evento e WHERE e.fecha = :datePrm"),
-		@NamedQuery(name = "Evento.findComing", query = "SELECT e FROM Evento e WHERE e.publico > 0 "
-													  + "AND e.fecha >= :datePrm ORDER BY e.fecha")})
+		@NamedQuery(name = "Evento.findVortexEvents", query = "SELECT e FROM Evento e WHERE e.publico > 0 "
+				+ "AND e.fecha >= :datePrm " + "AND e.cliente is null ORDER BY e.fecha "),
+		@NamedQuery(name = "Evento.findCustomerEvents", query = "SELECT e FROM Evento e WHERE e.publico > 0 "
+				+ "AND e.fecha >= :datePrm " + "AND e.cliente is NOT null ORDER BY e.fecha ")
+
+})
 public class Evento implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -64,12 +68,11 @@ public class Evento implements Serializable {
 	@JoinColumn(name = "creador")
 	private Cliente cliente;
 
-	//bi-directional many-to-one association to Mesa
+	// bi-directional many-to-one association to Mesa
 	@ManyToOne
-	@JoinColumn(name="mesa")
+	@JoinColumn(name = "mesa")
 	private Mesa mesa;
-	
-	
+
 	public Evento() {
 	}
 
@@ -82,8 +85,8 @@ public class Evento implements Serializable {
 	 * @param horaFin
 	 * @param cupo
 	 */
-	public Evento(String nombre, String descripcion, Date fecha,
-			int horaInicio, int horaFin, int cupo) {
+	public Evento(String nombre, String descripcion, Date fecha, int horaInicio, int horaFin,
+			int cupo) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;
@@ -104,8 +107,8 @@ public class Evento implements Serializable {
 	 * @param creador
 	 * @param mesa
 	 */
-	public Evento(String nombre, String descripcion, Date fecha,
-			int horaInicio, int horaFin, int cupo, int publico, Cliente creador, Mesa mesa) {
+	public Evento(String nombre, String descripcion, Date fecha, int horaInicio, int horaFin,
+			int cupo, int publico, Cliente creador, Mesa mesa) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;

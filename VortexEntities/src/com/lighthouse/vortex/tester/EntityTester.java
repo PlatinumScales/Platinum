@@ -67,9 +67,11 @@ public class EntityTester {
 		EventManagement em = new EventManagement();
 //		System.out.println(em.customerReservation(2, "Reservacion de Prueba6", "Reservacion de Prueba6", 1, new Date(), 2, 5, 1, "una pagina ahi"));
 //		em.confirmAttendance(3, 6);
-		for (Evento e : em.getComing()) {
-			System.out.println(e.getIdEvento());
-		}
+		System.out.println(em.createVortexEvent("Torneo", "Torneo de magic", new Date(), 8, 16, 20, "http.//"));
+		
+//		for (Evento e : em.getComing()) {
+//			System.out.println(e.getIdEvento());
+//		}
 		
 //		CustomerManagement cm = new CustomerManagement();
 //		System.out.println(cm.registerCustomer(3, "Marcos"));
