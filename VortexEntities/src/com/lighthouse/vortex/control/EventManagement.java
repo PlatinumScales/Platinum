@@ -28,7 +28,7 @@ public class EventManagement {
 			es.startEntityManager(persistanceUnit);
 
 			Evento evento = new Evento(nombre, descripcion, fecha, horaInicio, horaFin, cupo);
-
+			evento.setPublico(1);
 			ImagenService is = new ImagenService();
 			is.startEntityManager(persistanceUnit);
 			if (imagenUrl == null) { // No image url provided
@@ -250,6 +250,6 @@ public class EventManagement {
 	public List<Evento> getCustomerReservations(int customerID) {
 		EventoService es = new EventoService();
 		es.startEntityManager(persistanceUnit);
-		return es.findCustomerEvents(int customerID);
+		return es.customerEvents( customerID);
 	}
 }

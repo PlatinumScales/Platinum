@@ -69,9 +69,9 @@ public class EntityTester {
 //		em.confirmAttendance(3, 6);
 		System.out.println(em.createVortexEvent("Torneo", "Torneo de magic", new Date(), 8, 16, 20, "http.//"));
 		
-//		for (Evento e : em.getComing()) {
-//			System.out.println(e.getIdEvento());
-//		}
+		for (Evento e : em.getVortexEvents()) {
+			System.out.println(e.getIdEvento());
+		}
 		
 //		CustomerManagement cm = new CustomerManagement();
 //		System.out.println(cm.registerCustomer(3, "Marcos"));

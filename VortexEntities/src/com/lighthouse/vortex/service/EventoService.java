@@ -70,8 +70,7 @@ public class EventoService extends EntityService<Evento> implements
 	}
 
 //	@NamedQuery(name = "Evento.findByCustomer", query = "SELECT e FROM Evento e WHERE e.cliente.idCliente = :customerPrm ORDER BY e.fecha desc"),
-	public List<Evento> findCustomerEvents(int customerID) {
-		Date date = new Date();
+	public List<Evento> customerEvents(int customerID) {
 		TypedQuery<Evento> query = em.createNamedQuery("Evento.findByCustomer", Evento.class);
 		query.setParameter("idClientePrm", customerID);
 		return query.getResultList();
